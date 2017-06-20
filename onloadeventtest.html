@@ -1,0 +1,21 @@
+<doctype HTML>
+    <html>
+        <head>
+            <title>onload event test</title>
+            <script type="text/javascript">
+            function greeting(userName){
+                var userName =prompt("what is your name?");
+                alert("hello " +userName);
+                document.getElementById("userName").innerText = userName;                        
+            }
+            </script>
+        </head>
+        <body onload="greeting()">
+            <div>
+            <H1>Hello <span id="userName"></span></H1>
+            <h2> Did this work?</h2>
+            </div>
+        </body>
+    </html>
+
+            

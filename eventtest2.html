@@ -1,0 +1,46 @@
+<doctype HTML>
+    <html>
+        <head>
+            <title>onload event test</title>
+            <script type="text/javascript">
+            function greeting(userName){
+                var userName =prompt("what is your name?");
+                alert("hello " +userName);
+                document.getElementById("userName").innerText = userName;                        
+            }
+            function confirmation(worked){
+                var worked ="Yes!!!!!";
+                document.getElementById("worked").innerText = worked;
+                document.getElementById("unhidden").style.display = "block";
+            }
+            function negation(worked){
+                var worked ="No.  Really?";
+                alert("how are you seeing this then?");
+                document.getElementById("worked").innerText = worked;
+            }
+            </script>
+            <style>
+                button{
+                    background-color: silver;
+                    border: 2px, navy, solid;
+                    margin: auto;
+                    font-weight: 24pt;
+                }
+            </style>
+        </head>
+        <body onload="greeting()">
+            <div>
+            <H1>Hello <span id="userName"></span></H1>
+            <h2> Did this work? <span id="worked"></span></h2>
+            </div>
+            <div>
+            <button onclick="confirmation()">yes</button> <br/>
+            <button onclick="negation()">no</button>
+            </div>
+            <div id="unhidden" style="display:none;">
+                <h1>What about this? Did this work <span id="userName"></span></h1>
+            </div>
+        </body>
+    </html>
+
+            

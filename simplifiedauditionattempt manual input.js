@@ -10,6 +10,5 @@ function rangerRick(num1, num2, step){
         rangeevenstep[rangeevenstep.length] = range[i];
     }
     }
-    console.log(range)
-    console.log(rangeevenstep.toString())
+    return rangeevenstep.toString();
 }

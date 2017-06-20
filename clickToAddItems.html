@@ -1,15 +1,15 @@
-<doctype html>
-    <html>
-        <head>
-            <title>Click to Add Items</title>
-            <link href="bootstraprest2.css" rel="stylesheet"/>
-            <script type="text/JavaScript" src="clickToAddItems.js"></script>
-        </head>
-        <body>
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/JavaScript" src="clickToAddItems.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        rel="stylesheet" type="text/css" />
+</head>
+<body>
 <div class="container">
     <h1>Click to Add Items</h1>
-    <form name="numberFun" onsubmit="return validateItems();" 
-          onreset="resetForm();"" class="form-inline">
+    <form name="numberFun" onreset="resetForm();" onsubmit="return validateItems();" 
+           class="form-inline"> <!--needed to reverse order of onreset and onsubmit from example-->
             <div class="form-group">
                 <label for="num1">Num1</label>
                 <input type="number" class="form-control" id="num1">

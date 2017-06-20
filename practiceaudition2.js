@@ -4,25 +4,26 @@ function initialRange(num1, num2, step){
     var step = document.forms["rangeParameters"]["step"].value;
     var range=[];
     var current =num1;
-    var arrayresults =""
+    var arrayresults ="The even steps are"
     for(var i=0; current<num2; i++){
         current= num1+i;
         range[i]=current;
     } 
-    console.log("the range is: "+ range)
     stepCount(range, step);
+    return False;
 }
 function stepCount(range, step){
+    var step = document.forms["rangeParameters"]["step"].value;
     var steprange=[];
       for(var i=0; i<range.length; i++){
          if(i%step ==0){
              steprange[steprange.length] = range[i];
         }    
 }
-console.log("the stepped numbers are: " +steprange);
 stepEven(steprange, step);
 }
 function stepEven(steprange, step){
+    var step = document.forms["rangeParameters"]["step"].value;
     var evensteps=[];
     var arrayresults ="The even steps are";
     for (var i=0; i<steprange.length;i++){
@@ -30,14 +31,11 @@ function stepEven(steprange, step){
           evensteps[evensteps.length] = steprange[i];      
         }
     }
-    console.log("the even stepped number are: "+evensteps);
     for(stringindex=0; stringindex<evensteps.length; stringindex++){
         arrayresults += "<br>" + evensteps[stringindex];
     }
-    console.log(arrayresults)
+    document.getElementById("results").innerText= "hello" 
     return arrayresults;
-    document.getElementById("results").innerText= arrayresults;
-    return False;
 }
  
 

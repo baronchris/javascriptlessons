@@ -4,43 +4,43 @@ function initialRange(num1, num2, step){
     var step = document.forms["rangeParameters"]["step"].value;
     var range=[];
     var current =num1;
-    var arrayresults =""
+    var steprange=[];
+    var evensteps=[];
+    var arrayresults= [" "];
     for(var i=0; current<num2; i++){
         current= num1+i;
         range[i]=current;
-    } 
-    console.log("the range is: "+ range)
-    stepCount(range, step);
-}
-function stepCount(range, step){
-    var steprange=[];
-      for(var i=0; i<range.length; i++){
+    
+    for(var i=0; i<range.length; i++){
          if(i%step ==0){
              steprange[steprange.length] = range[i];
-        }    
-}
-console.log("the stepped numbers are: " +steprange);
-stepEven(steprange, step);
-}
-function stepEven(steprange, step){
-    var evensteps=[];
-    var arrayresults ="The even steps are";
-    for (var i=0; i<steprange.length;i++){
-        if(steprange[i]%2 ==0){
-          evensteps[evensteps.length] = steprange[i];      
+        
+    
+    for (var index=0; index<steprange.length;index++){
+        if(steprange[index]%2 ==0){
+          evensteps[evensteps.length] = steprange[index];      
         }
-    }
-    console.log("the even stepped number are: "+evensteps);
+    
     for(stringindex=0; stringindex<evensteps.length; stringindex++){
-        arrayresults += "<br>" + evensteps[stringindex];
+        evensteps[stringindex] = arrayresults[(stringindex)];
     }
-    console.log(arrayresults)
-    return arrayresults;
-    document.getElementById("results").innerText= arrayresults;
-    return False;
+    document.getElementById("results").innerText=arrayresults; 
+    return false;
+    }
+    }
+}
+    }
 }
  
-
+function resetForm() {
+    clearErrors();
+    document.forms["rangeParameters"]["num1"].value = "";
+    document.forms["rangeParameters"]["num2"].value = "";
+    document.forms["rangeParameters"]["step"].value = "";
+    document.getElementById("results").style.display = "none";
+    document.getElementById("submitButton").innerText = "Submit";
+    document.forms["rangeParameters"]["num1"].focus();
+}
 
 function clearErrors() {    
     for (var loopCounter = 0; 
@@ -54,4 +54,3 @@ function clearErrors() {
         }
     }    
 }
-

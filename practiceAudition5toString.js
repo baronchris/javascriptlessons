@@ -1,3 +1,5 @@
+    
+    //toString didn't work
     var resultArray =[];
     var printArray = "";
 function validate(){
@@ -32,21 +34,19 @@ function rangerRick(num1, num2, step){
         range[i]=current;}
             for(var j=0; j <range.length; j++){
                 if(range[j]%2 ==0 && j%step==0){
-                    resultArray[resultArray.length] =range[j];}}
-            for(var k = 0; k < resultArray.length; k++){
-            printArray +=  (" "+resultArray[k]);}
-        alert(resultArray);  //for debugging.  NB works win console!!
+                resultArray[resultArray.length] =range[j];}}
+            resultArray.toString() =printArray;
+            alert("Result:"+ printArray);  //for debugging.  NB works win console!!
+            document.getElementById("resultsArray").innerText = resultArray;
         return printArray;
     }
-    var resultFinal = rangerRick();
-    alert("Result:"+ resultFinal);
     document.getElementById("resultsArray").innerText = resultFinal;
     document.getElementById("submitButton").innerText = "Recalculate";
     document.getElementById("testStrip").style.display = "block";  //for debugging
     return false;
 }
 
-
+  var resultFinal = rangerRick();
 
 
 
@@ -60,10 +60,7 @@ function resetForm() {
     document.forms["rangeParameters"]["step"].value = "";
     document.getElementById("results").style.display = "none";
     document.getElementById("submitButton").innerText = "Submit";
-    var resultArray =[];
-    var printArray = "";
     document.forms["rangeParameters"]["num1"].focus();
-
 }
 
 function clearErrors() {    

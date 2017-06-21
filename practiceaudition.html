@@ -6,7 +6,7 @@
             <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
             rel="stylesheet" type="text/css" />
             <link href="practiceaudition.css" rel="stylesheet" type="text/css"/>
-            <script type="text/javascript" src="practiceaudition3.js"></script>
+            <script type="text/javascript" src="practiceaudition4.js"></script>
             <style>
             </style>
         </head>
@@ -14,13 +14,13 @@
             <div class="container">
                 <h1>Numerical array search</h1>
                 <form name="rangeParameters" onreset="resetForm();" 
-                onsubmit="return initialRange();" class="form-inline">
+                onsubmit="return ranger();" class="form-inline">
                     <div class="form-group">
                         <label for="num1">Num1</label>
                         <input type="number" class="form-control" id="num1">
                     </div> 
                     <div class="form-group">
-                        <label for="num2">Num1</label>
+                        <label for="num2">Num2</label>
                         <input type="number" class="form-control" id="num2">
                     </div> 
                     <div class="form-group">
@@ -31,8 +31,10 @@
                     <button type="reset" id="resetButton" class="btn">Reset</button>
                 </form>
             </div>
-            <div id="resultspace" class="jumbotron">
+            <div id="resultSpace" class="jumbotron">
                 <h1> Results are: <span id="results">      </span></h1>
+            </div>
+            <div id="testStrip" style="display: none"><h3 style="background-color: red">it did something</h3>
             </div>
         </body>
     </html>

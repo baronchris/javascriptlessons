@@ -6,30 +6,26 @@ function initialRange(num1, num2, step){
     var current =num1;
     var steprange=[];
     var evensteps=[];
-    var arrayresults= [" "];
     for(var i=0; current<num2; i++){
         current= num1+i;
         range[i]=current;
-    
     for(var i=0; i<range.length; i++){
          if(i%step ==0){
              steprange[steprange.length] = range[i];
-        
-    
     for (var index=0; index<steprange.length;index++){
         if(steprange[index]%2 ==0){
           evensteps[evensteps.length] = steprange[index];      
         }
-    
     for(stringindex=0; stringindex<evensteps.length; stringindex++){
         evensteps[stringindex] = arrayresults[(stringindex)];
     }
-    document.getElementById("results").innerText=arrayresults; 
-    return false;
     }
     }
 }
     }
+     document.getElementById("results").evensteps.toString();
+
+    return evensteps, false;
 }
  
 function resetForm() {

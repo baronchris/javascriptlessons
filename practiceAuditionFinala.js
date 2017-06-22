@@ -14,12 +14,12 @@ function validate(num1, num2, step){
         alert("step must be a positive number");
            return false;
     }
-    if((num2 - num1)<(step+1)){
+    if((num2 - num1)<1){
         alert("there must be more than one step between the inputs \n and num2 must be larger");
         return false;
     }
     alert("validation done");  //for debugging
-    var outstring =" ";
+    var outstring ="";
     outstring = ranger(num1, num2, step); 
     document.getElementById("resultsArray").innerText = outstring;
     document.getElementById("submitButton").innerText = "Recalculate";
@@ -32,7 +32,7 @@ function validate(num1, num2, step){
     var resultString = " ";
     for(i=num1; i<num2; i++){
         if(i%2==0 && (i-num1)%step==0){
-            resultString += i + ", ";
+            resultString +=i+ ", ";
             }
         }
     alert("resultFinal is" + resultString); //for debugging

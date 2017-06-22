@@ -22,40 +22,26 @@ function validate(num1, num2, step){
         alert("there must be more than one step between the inputs");
         return false;
     }
-    alert("validation done");  
+    alert("validation done");  //for debugging
     var outstring =" ";
     outstring = ranger(num1, num2, step); 
-    document.getElementById("resultsArray").innerText = outstring.value;
+    document.getElementById("resultsArray").innerText = outstring;
     document.getElementById("submitButton").innerText = "Recalculate";
     document.getElementById("testStrip").style.display = "block"; //for debugging
-    alert("Result:"+ outstring);  //for debugging
+    alert("Result:"+ outstring);  //for debugging in case html display fails
     return false;
 }
-
-
     function ranger(num1, num2, step){
-    alert("function called" + num1+ " " + num2);
+    alert("function called" + num1+ " " + num2);//for debugging, verifies values passed.  
     var resultString = " ";
     for(i=num1; i<num2; i++){
         if(i%2==0 && (i-num1)%step==0){
-            resultString += "  "+ i;
+            resultString += i + ", ";
             }
         }
-    alert("resultFinal is" + resultString);
+    alert("resultFinal is" + resultString); //for debugging
     return resultString;
-    }
-    
-
-function rangestring(num1,num2, step){
-    alert("function called " +num1+" "+num2);
 }
-    for(i=0; current<num2; i++){
-        current=(num1+i);
-        if(current%2==0 && i%step==0){
-            resultString += "  "+ current;
-    }
-}
-
 
 function resetForm() {
     clearErrors();

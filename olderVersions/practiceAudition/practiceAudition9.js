@@ -14,11 +14,11 @@ function validate(num1, num2, step){
         alert("step must be a positive number");
            return false;
     }
-    if(num1>=num2){
+    if(num1>(num2-1){
         alert("num1 must be smaller than num2");
         return false;
     }
-    if((num2-num1)<=step){
+    if((num2-num1)<1){
         alert("there must be more than one step between the inputs");
         return false;
     }

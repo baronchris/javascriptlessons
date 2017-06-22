@@ -1,11 +1,7 @@
-function validate(){
+function validate(num1, num2, step){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    var range =[];
-    var current =0;
-    var resultArray =[];
-    var printArray = "";
     if (num1 == "" || isNaN(num1)) {
         alert("Num1 must be filled in with a number.");
         return false;
@@ -26,28 +22,39 @@ function validate(){
         alert("there must be more than one step between the inputs");
         return false;
     }
-function rangerRick(num1, num2, step){
-    for(var i=0; current<num2 ; i++){
-        current = (num1+i);
-        range[i]=current;}
-            for(var j=0; j <range.length; j++){
-                if(range[j]%2 ==0 && j%step==0){
-                    resultArray[resultArray.length] =range[j];}}
-            for(var k = 0; k < resultArray.length; k++){
-            printArray +=  ("" + resultArray[k] +",");}
-        alert("the results are"+ printArray);  //for debugging.  NB works win console!!
-        return printArray;
-    }
-    var resultFinal = rangerRick();
-    document.getElementById("resultsArray").innerText = resultFinal;
+    alert("validation done");  
+    var outstring =" ";
+    outstring = ranger(num1, num2, step); 
+    document.getElementById("resultsArray").innerText = outstring.value;
     document.getElementById("submitButton").innerText = "Recalculate";
     document.getElementById("testStrip").style.display = "block"; //for debugging
-    alert("Result:"+ resultFinal);  //for debugging
+    alert("Result:"+ outstring);  //for debugging
     return false;
 }
 
 
+    function ranger(num1, num2, step){
+    alert("function called" + num1+ " " + num2);
+    var resultString = " ";
+    for(i=num1; i<num2; i++){
+        if(i%2==0 && (i-num1)%step==0){
+            resultString += "  "+ i;
+            }
+        }
+    alert("resultFinal is" + resultString);
+    return resultString;
+    }
+    
 
+function rangestring(num1,num2, step){
+    alert("function called " +num1+" "+num2);
+}
+    for(i=0; current<num2; i++){
+        current=(num1+i);
+        if(current%2==0 && i%step==0){
+            resultString += "  "+ current;
+    }
+}
 
 
 function resetForm() {
@@ -58,10 +65,7 @@ function resetForm() {
     document.forms["rangeParameters"]["num1"].value = "";
     document.forms["rangeParameters"]["num2"].value = "";
     document.forms["rangeParameters"]["step"].value = "";
-    document.getElementById("results").style.display = "none";
     document.getElementById("submitButton").innerText = "Submit";
-    var resultArray =[];
-    var printArray = "";
     document.forms["rangeParameters"]["num1"].focus();
 
 }

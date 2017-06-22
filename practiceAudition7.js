@@ -1,11 +1,13 @@
+    var range =[];
+    var resultArray =[];
+    var resultFinal = "";
+    var num1 =0;
+    var num2 =0;
+    var step =0;
 function validate(){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    var range =[];
-    var current =0;
-    var resultArray =[];
-    var printArray = "";
     if (num1 == "" || isNaN(num1)) {
         alert("Num1 must be filled in with a number.");
         return false;
@@ -26,28 +28,30 @@ function validate(){
         alert("there must be more than one step between the inputs");
         return false;
     }
-function rangerRick(num1, num2, step){
-    for(var i=0; current<num2 ; i++){
-        current = (num1+i);
-        range[i]=current;}
-            for(var j=0; j <range.length; j++){
-                if(range[j]%2 ==0 && j%step==0){
-                    resultArray[resultArray.length] =range[j];}}
-            for(var k = 0; k < resultArray.length; k++){
-            printArray +=  ("" + resultArray[k] +",");}
-        alert("the results are"+ printArray);  //for debugging.  NB works win console!!
-        return printArray;
-    }
-    var resultFinal = rangerRick();
+    var resultFinal = rangerRick(num1, num2, step);
+    alert("resultFinal is" + resultFinal);
     document.getElementById("resultsArray").innerText = resultFinal;
     document.getElementById("submitButton").innerText = "Recalculate";
     document.getElementById("testStrip").style.display = "block"; //for debugging
     alert("Result:"+ resultFinal);  //for debugging
     return false;
 }
-
-
-
+function rangerRick(num1, num2, step){
+     alert("starting loop 1 "+" " + num1 +" " +" " +num2 + " "+ step); //for debugging.  NB works in console!!
+    for(var i=0; (num1+i)<num2 ; i++){   // breaks browser somewhere in here
+        range[i]=(num1+i);}  
+        alert("starting loop 2");  //never made it to this alert in browser 
+            for(var j=0; j <range.length; j++){
+                if(range[j]%2 ==0 && j%step==0){
+                    resultArray[resultArray.length] =range[j];
+                }
+            }
+            for(var k = 0; k < resultArray.length; k++){
+            printArray +=  (" "+resultArray[k]);
+        }
+        alert("the results are"+ resultArray);  
+        return printArray;
+    }
 
 
 function resetForm() {

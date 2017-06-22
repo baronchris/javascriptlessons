@@ -1,11 +1,13 @@
+    var range =[];
+    var resultArray =[];
+    var printArray = "";
+    var num1 =0;
+    var num2 =0;
+    var step =0;
 function validate(){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    var range =[];
-    var current =0;
-    var resultArray =[];
-    var printArray = "";
     if (num1 == "" || isNaN(num1)) {
         alert("Num1 must be filled in with a number.");
         return false;
@@ -26,7 +28,17 @@ function validate(){
         alert("there must be more than one step between the inputs");
         return false;
     }
+    alert("passing variables");
+    var resultFinal = rangerRick(num1, num2, step);
+    alert("resultFinal is" + resultFinal);
+    document.getElementById("resultsArray").innerText = resultFinal;
+    document.getElementById("submitButton").innerText = "Recalculate";
+    document.getElementById("testStrip").style.display = "block"; //for debugging
+    alert("Result:"+ resultFinal);  //for debugging
+    return false;
+}
 function rangerRick(num1, num2, step){
+     var current =0;
     for(var i=0; current<num2 ; i++){
         current = (num1+i);
         range[i]=current;}
@@ -38,13 +50,6 @@ function rangerRick(num1, num2, step){
         alert("the results are"+ printArray);  //for debugging.  NB works win console!!
         return printArray;
     }
-    var resultFinal = rangerRick();
-    document.getElementById("resultsArray").innerText = resultFinal;
-    document.getElementById("submitButton").innerText = "Recalculate";
-    document.getElementById("testStrip").style.display = "block"; //for debugging
-    alert("Result:"+ resultFinal);  //for debugging
-    return false;
-}
 
 
 

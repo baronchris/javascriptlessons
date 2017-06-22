@@ -1,3 +1,4 @@
+
 function validate(){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
@@ -26,7 +27,6 @@ function validate(){
         alert("there must be more than one step between the inputs");
         return false;
     }
-function rangerRick(num1, num2, step){
     for(var i=0; current<num2 ; i++){
         current = (num1+i);
         range[i]=current;}
@@ -36,8 +36,6 @@ function rangerRick(num1, num2, step){
             for(var k = 0; k < resultArray.length; k++){
             printArray +=  ("" + resultArray[k] +",");}
         alert("the results are"+ printArray);  //for debugging.  NB works win console!!
-        return printArray;
-    }
     var resultFinal = rangerRick();
     document.getElementById("resultsArray").innerText = resultFinal;
     document.getElementById("submitButton").innerText = "Recalculate";

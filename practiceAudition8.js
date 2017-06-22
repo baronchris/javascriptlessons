@@ -1,11 +1,8 @@
+"use strict";
 function validate(){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    var range =[];
-    var current =0;
-    var resultArray =[];
-    var printArray = "";
     if (num1 == "" || isNaN(num1)) {
         alert("Num1 must be filled in with a number.");
         return false;
@@ -26,29 +23,27 @@ function validate(){
         alert("there must be more than one step between the inputs");
         return false;
     }
-function rangerRick(num1, num2, step){
-    for(var i=0; current<num2 ; i++){
-        current = (num1+i);
-        range[i]=current;}
-            for(var j=0; j <range.length; j++){
-                if(range[j]%2 ==0 && j%step==0){
-                    resultArray[resultArray.length] =range[j];}}
-            for(var k = 0; k < resultArray.length; k++){
-            printArray +=  ("" + resultArray[k] +",");}
-        alert("the results are"+ printArray);  //for debugging.  NB works win console!!
-        return printArray;
-    }
-    var resultFinal = rangerRick();
-    document.getElementById("resultsArray").innerText = resultFinal;
+    var resultFinal = rangestring(num1, num2, step);
+    alert("resultFinal is" + resultString);
+    document.getElementById("resultsArray").innerText = resultString;
     document.getElementById("submitButton").innerText = "Recalculate";
     document.getElementById("testStrip").style.display = "block"; //for debugging
-    alert("Result:"+ resultFinal);  //for debugging
+    alert("Result:"+ resultstring);  //for debugging
     return false;
 }
-
-
-
-
+function rangestring(num1,num2, step){
+    alert("rangestring called"+ num1 +" " + num2+ " "+ step);
+    var current=0;
+    var resultString = "This is the result: ";
+    for(i=0; current<num2; i++){
+        current=num1+i;
+        if(current%2==0 && i%step==0){
+            resultString += current +" ,";
+    }
+    alert("done calculating");
+}
+return resultString;
+}
 
 function resetForm() {
     clearErrors();

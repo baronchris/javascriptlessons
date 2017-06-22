@@ -1,12 +1,12 @@
-function validate(){
+function validate(num1, num2, step){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    
-    var current =0;
-    
     if (num1 == "" || isNaN(num1)) {
-        alert("Num1 must be filled in with a number.");
+        alert("Num1 must be filled in with a number.");alert("Num1 must be filled in with a number.");
+        document.forms["rangeParameters"]["num1"]
+           .parentElement.className = "form-group has-error";
+        document.forms["rangeParameters"]["num1"].focus();
         return false;
     }
     if (num2 == "" || isNaN(num1)) {
@@ -17,57 +17,40 @@ function validate(){
         alert("step must be a positive number");
            return false;
     }
-    if(num1>=num2){
-        alert("num1 must be smaller than num2");
+    if((num2 - num1)<1){
+        alert("there must be more than one step between the inputs \n and num2 must be larger");
         return false;
     }
-    if((num2-num1)<=step){
-        alert("there must be more than one step between the inputs");
-        return false;
-    }
-function rangerRick(num1, num2, step){
-    var range =[];
-    var resultArray =[];
-    var printArray = "";
-    for(var i=num1; i<(num2+1); i++){
-        range[i]=i;
-    }
-            for(var j=0; j <range.length; j++){
-                if(range[j]%2 ==0 && j%step==0){
-                    resultArray[resultArray.length] =range[j];}}
-            for(var k = 0; k < resultArray.length; k++){
-            printArray +=  ("" + resultArray[k] +",");}
-        alert("the results are"+ printArray);  //for debugging.  NB works win console!!
-        console.log(range);
-        console.log(printArray);
-        console.log(resultArray);
-    }
-    var resultFinal = rangerRick();
-    document.getElementById("resultsArray").innerText = resultFinal;
+    alert("validation done");  //for debugging
+    var outstring ="";
+    outstring = ranger(num1, num2, step); 
+    document.getElementById("resultsArray").innerText = outstring;
     document.getElementById("submitButton").innerText = "Recalculate";
-    document.getElementById("testStrip").style.display = "block"; //for debugging
-    alert("Result:"+ resultFinal);  //for debugging
+    alert("Result:"+ outstring);  //for debugging in case html display fails
     return false;
 }
-
-
-
-
+    function ranger(num1, num2, step){
+    alert("function called" + num1+ " " + num2);//for debugging, verifies values passed.  
+    var resultString = " ";
+    for(i=num1; i<num2; i++){
+        if(i%2==0 && (i-num1)%step==0){
+            resultString +=i+ ", ";
+            }
+        }
+    alert("resultFinal is" + resultString); //for debugging
+    return resultString;  //will not pass in browser if num1 <10?
+}
 
 function resetForm() {
     clearErrors();
     var resultArray =[];
     var printArray = "";
-    document.getElementById("testStrip").style.display = "none";
     document.forms["rangeParameters"]["num1"].value = "";
     document.forms["rangeParameters"]["num2"].value = "";
     document.forms["rangeParameters"]["step"].value = "";
-    document.getElementById("results").style.display = "none";
     document.getElementById("submitButton").innerText = "Submit";
-    var resultArray =[];
-    var printArray = "";
+    document.getElementById("resultsArray").innerText = "";
     document.forms["rangeParameters"]["num1"].focus();
-
 }
 
 function clearErrors() {    

@@ -1,3 +1,4 @@
+//for num1 !=num2 order independent needs work.  
 function validate(num1, num2, step){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
@@ -21,8 +22,8 @@ function validate(num1, num2, step){
         document.forms["rangeParameters"]["step"].focus();
            return false;
     }
-    if((num2 - num1)<1){
-        alert("there must be more than one step between the inputs \n and num2 must be larger");
+    if(Math.abs(num2 - num1)<1){
+        alert("there must be more than one step between the inputs");
         document.forms["rangeParameters"]["num1"].parentElement.className = "form-group has-error";
         document.forms["rangeParameters"]["num2"].parentElement.className = "form-group has-error";
         document.forms["rangeParameters"]["num1"].value = "";
@@ -38,12 +39,23 @@ function validate(num1, num2, step){
 }
     function ranger(num1, num2, step){
     var resultString = " ";
-    for(i=num1; i<=num2; i++){
+    if(num2>num1){
+    for(i=num2; i<=num1; i++){
         if(i%2==0 && (i-num1)%step==0){
             resultString +=i+ ", ";
             }
         }
-    return resultString;  //will not pass in browser if num1 <10 unless number is two digits i.e. 04.
+        alert("results num1< num2 " + resultString)
+    }
+    if(num1>num2){
+        for(i=num1; i<=num2; i++){
+        if(i%2==0 && (i-num2)%step==0){
+            resultString +=i+ ", ";
+        }
+        alert("results num1> num2 " + resultString)
+    }
+}
+return resultString;  //will not pass in browser if num1 <10 unless number is two digits i.e. 04
 }
 
 function resetForm() {

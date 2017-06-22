@@ -1,45 +1,58 @@
+//for num1 !=num2 order independent needs work.  
 function validate(num1, num2, step){
     var num1 = document.forms["rangeParameters"]["num1"].value;
     var num2 = document.forms["rangeParameters"]["num2"].value;
     var step = document.forms["rangeParameters"]["step"].value;
-    if (num1 == "" || isNaN(num1)) {
-        alert("Num1 must be filled in with a number.");alert("Num1 must be filled in with a number.");
+    if (num1 == undefined || isNaN(num1)) {
+        alert("Num1 must be filled in with a number");
         document.forms["rangeParameters"]["num1"]
-           .parentElement.className = "form-group has-error";
+        .parentElement.className = "form-group has-error";
         document.forms["rangeParameters"]["num1"].focus();
-        return false;
         return false;
     }
     if (num2 == "" || isNaN(num1)) {
         alert("Num2 must be filled in with a number.");
+        document.forms["rangeParameters"]["num2"].parentElement.className = "form-group has-error";
+        document.forms["rangeParameters"]["num2"].focus();
         return false;
     }
     if(step =="" || isNaN(step) || step<1){
         alert("step must be a positive number");
+        document.forms["rangeParameters"]["step"].parentElement.className = "form-group has-error";
+        document.forms["rangeParameters"]["step"].focus();
            return false;
     }
-    if((num2 - num1)<1){
-        alert("there must be more than one step between the inputs \n and num2 must be larger");
+    if(Math.abs(num2 - num1)<1){
+        alert("there must be more than one step between the inputs");
+        document.forms["rangeParameters"]["num1"].parentElement.className = "form-group has-error";
+        document.forms["rangeParameters"]["num2"].parentElement.className = "form-group has-error";
+        document.forms["rangeParameters"]["num1"].value = "";
+        document.forms["rangeParameters"]["num2"].value = "";
+        document.forms["rangeParameters"]["num1"].focus();
         return false;
     }
-    alert("validation done");  //for debugging
     var outstring ="";
-    outstring = ranger(num1, num2, step); 
+    outstring = rangerArray(num1, num2, step); 
     document.getElementById("resultsArray").innerText = outstring;
     document.getElementById("submitButton").innerText = "Recalculate";
-    alert("Result:"+ outstring);  //for debugging in case html display fails
     return false;
 }
-    function ranger(num1, num2, step){
-    alert("function called" + num1+ " " + num2);//for debugging, verifies values passed.  
-    var resultString = " ";
-    for(i=num1; i<num2; i++){
-        if(i%2==0 && (i-num1)%step==0){
-            resultString +=i+ ", ";
+function rangerArray(num1, num2, step){
+    
+    var range=[];
+    var resultRange =[];
+    for(var h=num1; h<=num2; h++){
+        range[(h-num1)]=h;
+    }
+    console.log(range);
+    
+        for(var i=0; (i<range.length+1); i++){
+            if(range[i]%2==0 && i%step ==0){
+                resultRange[resultRange.length]=range[i];
             }
         }
-    alert("resultFinal is" + resultString); //for debugging
-    return resultString;  //will not pass in browser if num1 <10?
+    console.log(resultRange);
+    return resultRange;
 }
 
 function resetForm() {

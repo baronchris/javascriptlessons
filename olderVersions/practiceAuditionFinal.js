@@ -30,9 +30,11 @@ function validate(num1, num2, step){
     function ranger(num1, num2, step){
     alert("function called" + num1+ " " + num2);//for debugging, verifies values passed.  
     var resultString = " ";
+    var toWrite=00;
     for(i=num1; i<num2; i++){
         if(i%2==0 && (i-num1)%step==0){
-            resultString += i + ", ";
+            i=toWrite;
+            resultString += toWrite + ", ";
             }
         }
     alert("resultFinal is" + resultString); //for debugging

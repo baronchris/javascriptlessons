@@ -23,7 +23,6 @@ function validate(num1, num2, step){
     outstring = ranger(num1, num2, step); 
     document.getElementById("resultsArray").innerText = outstring;
     document.getElementById("submitButton").innerText = "Recalculate";
-    document.getElementById("testStrip").style.display = "block"; //for debugging
     alert("Result:"+ outstring);  //for debugging in case html display fails
     return false;
 }
@@ -36,21 +35,19 @@ function validate(num1, num2, step){
             }
         }
     alert("resultFinal is" + resultString); //for debugging
-    return resultString;
+    return resultString;  //will not pass in browser if num1 <10?
 }
 
 function resetForm() {
     clearErrors();
     var resultArray =[];
     var printArray = "";
-    document.getElementById("testStrip").style.display = "none";
     document.forms["rangeParameters"]["num1"].value = "";
     document.forms["rangeParameters"]["num2"].value = "";
     document.forms["rangeParameters"]["step"].value = "";
     document.getElementById("submitButton").innerText = "Submit";
     document.getElementById("resultsArray").innerText = "";
     document.forms["rangeParameters"]["num1"].focus();
-
 }
 
 function clearErrors() {    

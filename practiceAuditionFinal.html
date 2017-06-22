@@ -1,0 +1,38 @@
+<!--NB I want to redo theis specifying even or odd within range-->
+<doctype html>
+    <html>
+        <head>
+            <title>Practice audition</title>
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            rel="stylesheet" type="text/css" />
+            <script type="text/javascript" src="practiceAuditionFinalv2.js"></script>
+            <style>
+            </style>
+        </head>
+        <body>
+            <div class="container">
+                <h1>Numerical array search</h1>
+                <h2>please enter any number less than 10 as 0n i.e. 4 is 04</h2>
+                <form name="rangeParameters" onreset="resetForm();" 
+                onsubmit="return validate();" class="form-inline">
+                    <div class="form-group">
+                        <label for="num1">Num1</label>
+                        <input type="number" class="form-control" id="num1">
+                    </div> 
+                    <div class="form-group">
+                        <label for="num2">Num2</label>
+                        <input type="number" class="form-control" id="num2">
+                    </div> 
+                    <div class="form-group">
+                        <label for="step">step</label>
+                        <input type="number" class="form-control" id="step">
+                    </div>
+                    <button type="submit" id="submitButton" class="btn btn-default">Submit</button>
+                    <button type="reset" id="resetButton" class="btn">Reset</button>
+                </form>
+            </div>
+            <div class="resultSpace" style="text-align:center" style="background-color: silver" style="height: 60px">
+                <h1> results: <span id="resultsArray">results here </span></h1>
+            </div>
+        </body>
+    </html>
